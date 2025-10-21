@@ -8,8 +8,10 @@ import { Sun, Moon, Menu, X } from "lucide-astro";
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-lg overflow-hidden">
+      <a href="#inicio" class="flex items-center space-x-3 group">
+        <div
+          class="w-10 h-10 rounded-lg overflow-hidden transition-transform duration-300 group-hover:scale-105"
+        >
           <img
             src="/images/header.jpg"
             alt="Logo Consorcio Ejecutor Huaya"
@@ -22,7 +24,7 @@ import { Sun, Moon, Menu, X } from "lucide-astro";
           </h1>
           <p class="text-sm text-gray-600 dark:text-gray-300">Ejecutor Huaya</p>
         </div>
-      </div>
+      </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
