@@ -1,0 +1,132 @@
+---
+import {
+  Building2,
+  Construction,
+  Car,
+  Home,
+  Layers,
+  Droplets,
+  Eye,
+  Leaf,
+  Mountain,
+  MapPin,
+  ClipboardList,
+  PenTool,
+} from "lucide-astro";
+
+const services = [
+  {
+    icon: Building2,
+    title: "Diseño y construcción de obras civiles",
+    description: "Desarrollo integral de infraestructura civil con tecnología moderna y materiales de alta calidad.",
+    color: "from-blue-500 to-blue-600"
+  },
+  {
+    icon: Construction,
+    title: "Diseño y construcción de obras de pavimentos",
+    description: "Construcción de pavimentos resistentes y duraderos para vías y espacios urbanos.",
+    color: "from-gray-500 to-gray-600"
+  },
+  {
+    icon: Car,
+    title: "Diseño vial",
+    description: "Planificación y diseño de vías modernas y eficientes para el desarrollo regional.",
+    color: "from-green-500 to-green-600"
+  },
+  {
+    icon: Home,
+    title: "Diseño arquitectónico",
+    description: "Creación de espacios funcionales y estéticamente atractivos adaptados a las necesidades.",
+    color: "from-purple-500 to-purple-600"
+  },
+  {
+    icon: Layers,
+    title: "Diseños estructurales",
+    description: "Análisis y diseño estructural garantizando seguridad y durabilidad en cada proyecto.",
+    color: "from-red-500 to-red-600"
+  },
+  {
+    icon: Droplets,
+    title: "Diseño y ejecución de obras de saneamiento rural y urbano",
+    description: "Sistemas de agua potable y alcantarillado para comunidades urbanas y rurales.",
+    color: "from-cyan-500 to-cyan-600"
+  },
+  {
+    icon: Eye,
+    title: "Supervisión de obras públicas y privadas",
+    description: "Control y seguimiento técnico de obras garantizando calidad y cumplimiento de plazos.",
+    color: "from-orange-500 to-orange-600"
+  },
+  {
+    icon: Leaf,
+    title: "Estudios de impacto ambiental",
+    description: "Evaluación del impacto ambiental de proyectos con enfoque sostenible y responsable.",
+    color: "from-emerald-500 to-emerald-600"
+  },
+  {
+    icon: Mountain,
+    title: "Estudios de suelos",
+    description: "Análisis geotécnico completo para fundamentar decisiones de diseño y construcción.",
+    color: "from-amber-600 to-amber-700"
+  },
+  {
+    icon: Car,
+    title: "Estudio de impacto vial",
+    description: "Análisis del impacto en el tráfico vehicular y peatonal de nuevos proyectos viales.",
+    color: "from-indigo-500 to-indigo-600"
+  },
+  {
+    icon: MapPin,
+    title: "Habilitaciones urbanas",
+    description: "Desarrollo de proyectos de habilitación urbana integral con todos los servicios.",
+    color: "from-pink-500 to-pink-600"
+  },
+  {
+    icon: PenTool,
+    title: "Levantamiento topográfico",
+    description: "Medición y representación gráfica precisa del terreno con equipos de última tecnología.",
+    color: "from-teal-500 to-teal-600"
+  },
+  {
+    icon: ClipboardList,
+    title: "Planificación y control de obra",
+    description: "Gestión integral de proyectos con control de costos, tiempos y recursos.",
+    color: "from-violet-500 to-violet-600"
+  }
+];
+---
+
+<section id="servicios" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 mb-4">
+        Lo que ofrecemos
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Nuestros Servicios
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Ofrecemos servicios integrales de construcción, diseño e ingeniería con los más altos estándares de calidad y sostenibilidad.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => {
+        const Icon = service.icon;
+        return (
+          <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 animate-on-scroll">
+            <div class={`flex items-center justify-center w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl mb-6`}>
+              <Icon class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              {service.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              {service.description}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

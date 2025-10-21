@@ -1,0 +1,313 @@
+---
+import { ExternalLink, Calendar, MapPin, Building2 } from "lucide-astro";
+---
+
+<section id="proyectos" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <span
+        class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 mb-4"
+      >
+        Nuestro trabajo
+      </span>
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+      >
+        Proyectos Realizados
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Descubre algunos de nuestros proyectos más destacados que demuestran
+        nuestro compromiso con la excelencia y la sostenibilidad.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-16">
+      <!-- Proyecto 1: Excavación Urbana -->
+      <div
+        class="group bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll"
+      >
+        <div class="relative overflow-hidden">
+          <div
+            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-orange-400 to-orange-600"
+          >
+            <div
+              class="w-full h-64 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center relative"
+            >
+              <!-- Simulación de imagen de excavación -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-orange-800/50 to-transparent"
+              >
+              </div>
+              <div class="relative z-10 text-center text-white">
+                <Building2 class="w-16 h-16 mx-auto mb-3 opacity-90" />
+                <p class="text-sm font-medium">Excavación Urbana</p>
+              </div>
+              <!-- Overlay con detalles -->
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <div class="text-center text-white">
+                  <ExternalLink class="w-8 h-8 mx-auto mb-2" />
+                  <p class="text-sm">Ver detalles</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              Excavación y Obras Urbanas
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Proyecto de excavación en zona urbana con maquinaria
+              especializada, priorizando la seguridad y minimizando el impacto
+              en la comunidad.
+            </p>
+            <div
+              class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            >
+              <div class="flex items-center space-x-1">
+                <MapPin class="w-4 h-4" />
+                <span>Chachapoyas</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <Calendar class="w-4 h-4" />
+                <span>2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: Infraestructura Hidráulica -->
+      <div
+        class="group bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll"
+      >
+        <div class="relative overflow-hidden">
+          <div
+            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-blue-400 to-blue-600"
+          >
+            <div
+              class="w-full h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative"
+            >
+              <!-- Simulación de imagen de infraestructura hidráulica -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blue-800/50 to-transparent"
+              >
+              </div>
+              <div class="relative z-10 text-center text-white">
+                <div
+                  class="w-16 h-16 mx-auto mb-3 bg-white/20 rounded-full flex items-center justify-center"
+                >
+                  <div class="w-8 h-8 bg-white rounded-sm"></div>
+                </div>
+                <p class="text-sm font-medium">Infraestructura Hidráulica</p>
+              </div>
+              <!-- Overlay con detalles -->
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <div class="text-center text-white">
+                  <ExternalLink class="w-8 h-8 mx-auto mb-2" />
+                  <p class="text-sm">Ver detalles</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              Sistema de Tratamiento de Aguas
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Construcción de infraestructura hidráulica moderna para el
+              tratamiento de aguas residuales, contribuyendo al saneamiento
+              regional.
+            </p>
+            <div
+              class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            >
+              <div class="flex items-center space-x-1">
+                <MapPin class="w-4 h-4" />
+                <span>Amazonas</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <Calendar class="w-4 h-4" />
+                <span>2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3: Instalación de Infraestructura -->
+      <div
+        class="group bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll"
+      >
+        <div class="relative overflow-hidden">
+          <div
+            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-green-400 to-green-600"
+          >
+            <div
+              class="w-full h-64 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative"
+            >
+              <!-- Simulación de imagen de instalación -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-green-800/50 to-transparent"
+              >
+              </div>
+              <div class="relative z-10 text-center text-white">
+                <div
+                  class="w-16 h-16 mx-auto mb-3 border-4 border-white rounded-full flex items-center justify-center"
+                >
+                  <div class="w-6 h-6 bg-white rounded-full"></div>
+                </div>
+                <p class="text-sm font-medium">Instalación Especializada</p>
+              </div>
+              <!-- Overlay con detalles -->
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <div class="text-center text-white">
+                  <ExternalLink class="w-8 h-8 mx-auto mb-2" />
+                  <p class="text-sm">Ver detalles</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              Instalación de Sistemas
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Proyecto de instalación de sistemas especializados con precisión
+              técnica y cumplimiento de normativas internacionales.
+            </p>
+            <div
+              class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            >
+              <div class="flex items-center space-x-1">
+                <MapPin class="w-4 h-4" />
+                <span>Región Amazonas</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <Calendar class="w-4 h-4" />
+                <span>2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 4: Múltiples Obras -->
+      <div
+        class="group bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll"
+      >
+        <div class="relative overflow-hidden">
+          <div
+            class="aspect-w-16 aspect-h-12 bg-gradient-to-br from-purple-400 to-purple-600"
+          >
+            <div
+              class="w-full h-64 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center relative"
+            >
+              <!-- Simulación de múltiples proyectos -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-purple-800/50 to-transparent"
+              >
+              </div>
+              <div class="relative z-10 text-center text-white">
+                <div class="grid grid-cols-2 gap-2 w-16 h-16 mx-auto mb-3">
+                  <div class="bg-white/30 rounded"></div>
+                  <div class="bg-white/50 rounded"></div>
+                  <div class="bg-white/50 rounded"></div>
+                  <div class="bg-white/30 rounded"></div>
+                </div>
+                <p class="text-sm font-medium">Proyectos Múltiples</p>
+              </div>
+              <!-- Overlay con detalles -->
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+              >
+                <div class="text-center text-white">
+                  <ExternalLink class="w-8 h-8 mx-auto mb-2" />
+                  <p class="text-sm">Ver detalles</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              Desarrollo Integral
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Conjunto de proyectos ejecutados simultáneamente, demostrando
+              nuestra capacidad de gestión y coordinación de múltiples obras.
+            </p>
+            <div
+              class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            >
+              <div class="flex items-center space-x-1">
+                <MapPin class="w-4 h-4" />
+                <span>Varios lugares</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <Calendar class="w-4 h-4" />
+                <span>2023-2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div
+      class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 text-white animate-on-scroll"
+    >
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold mb-4">Nuestros Logros</h3>
+        <p class="text-blue-100 max-w-2xl mx-auto">
+          Números que reflejan nuestro compromiso con la excelencia y la
+          satisfacción de nuestros clientes.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-3xl font-bold mb-2">50+</div>
+          <div class="text-blue-100">Proyectos Completados</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold mb-2">100%</div>
+          <div class="text-blue-100">Proyectos Entregados</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold mb-2">15+</div>
+          <div class="text-blue-100">Años de Experiencia</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold mb-2">98%</div>
+          <div class="text-blue-100">Satisfacción Cliente</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-16 animate-on-scroll">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+        ¿Tienes un proyecto en mente?
+      </h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        Contáctanos para discutir cómo podemos hacer realidad tu visión con
+        nuestros servicios especializados.
+      </p>
+      <a
+        href="#contacto"
+        class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+      >
+        Iniciar Proyecto
+        <ExternalLink class="ml-2 w-5 h-5" />
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,285 @@
+---
+// Component for enhanced animation observers
+---
+
+<script>
+  // Enhanced Intersection Observer for animations
+  class AnimationController {
+    private observerOptions: IntersectionObserverInit;
+
+    constructor() {
+      this.observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      this.init();
+    }
+
+    init() {
+      // Wait for DOM to be ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () =>
+          this.setupObservers()
+        );
+      } else {
+        this.setupObservers();
+      }
+    }
+
+    setupObservers() {
+      // Main animation observer
+      const mainObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+
+            // Add staggered animations for child elements
+            const children = entry.target.querySelectorAll(".animate-child");
+            children.forEach((child, index) => {
+              setTimeout(() => {
+                child.classList.add("animate-in");
+              }, index * 100);
+            });
+          }
+        });
+      }, this.observerOptions);
+
+      // Observe all elements with animation classes
+      const animatedElements = document.querySelectorAll(".animate-on-scroll");
+      animatedElements.forEach((el) => mainObserver.observe(el));
+
+      // Counter animation observer
+      this.setupCounterAnimations();
+
+      // Parallax effect for hero section
+      this.setupParallaxEffects();
+    }
+
+    setupCounterAnimations() {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            if (counter instanceof HTMLElement) {
+              const target = parseInt(counter.dataset.target || "0") || 0;
+              const duration =
+                parseInt(counter.dataset.duration || "2000") || 2000;
+
+              this.animateCounter(counter, target, duration);
+              counterObserver.unobserve(counter);
+            }
+          }
+        });
+      }, this.observerOptions);
+
+      const counters = document.querySelectorAll(".counter");
+      counters.forEach((counter) => counterObserver.observe(counter));
+    }
+
+    animateCounter(element: HTMLElement, target: number, duration: number) {
+      const start = 0;
+      const startTime = performance.now();
+
+      const updateCounter = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOut);
+
+        element.textContent = current + (element.dataset.suffix || "");
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target + (element.dataset.suffix || "");
+        }
+      };
+
+      requestAnimationFrame(updateCounter);
+    }
+
+    setupParallaxEffects() {
+      const parallaxElements = document.querySelectorAll(".parallax");
+
+      if (parallaxElements.length === 0) return;
+
+      let ticking = false;
+
+      const updateParallax = () => {
+        const scrolled = window.pageYOffset;
+
+        parallaxElements.forEach((element) => {
+          if (element instanceof HTMLElement) {
+            const speed = parseFloat(element.dataset.speed || "0.5") || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+          }
+        });
+
+        ticking = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      });
+    }
+  }
+
+  // Initialize animation controller
+  new AnimationController();
+
+  // Theme persistence and smooth transitions
+  class ThemeController {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      // Apply saved theme immediately to prevent flash
+      this.applyTheme();
+
+      // Setup theme toggle listeners
+      this.setupThemeToggle();
+
+      // Listen for system theme changes
+      this.setupSystemThemeListener();
+    }
+
+    applyTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    setupThemeToggle() {
+      const themeToggle = document.getElementById("theme-toggle");
+      if (!themeToggle) return;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        // Add a subtle animation to the toggle
+        themeToggle.style.transform = "scale(0.9)";
+        setTimeout(() => {
+          themeToggle.style.transform = "scale(1)";
+        }, 150);
+      });
+    }
+
+    setupSystemThemeListener() {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      mediaQuery.addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+          const theme = e.matches ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      });
+    }
+  }
+
+  // Initialize theme controller
+  new ThemeController();
+
+  // Performance optimizations
+  class PerformanceOptimizer {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      // Lazy load images
+      this.setupLazyLoading();
+
+      // Preload critical resources
+      this.preloadCriticalResources();
+
+      // Setup smooth scrolling with performance considerations
+      this.setupSmoothScrolling();
+    }
+
+    setupLazyLoading() {
+      const images = document.querySelectorAll("img[data-src]");
+
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img instanceof HTMLImageElement && img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.remove("lazy");
+                imageObserver.unobserve(img);
+              }
+            }
+          });
+        });
+
+        images.forEach((img) => imageObserver.observe(img));
+      } else {
+        // Fallback for older browsers
+        images.forEach((img) => {
+          if (img instanceof HTMLImageElement && img.dataset.src) {
+            img.src = img.dataset.src;
+          }
+        });
+      }
+    }
+
+    preloadCriticalResources() {
+      // Preload critical fonts
+      const fontLink = document.createElement("link");
+      fontLink.rel = "preload";
+      fontLink.href =
+        "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap";
+      fontLink.as = "style";
+      fontLink.crossOrigin = "anonymous";
+      document.head.appendChild(fontLink);
+    }
+
+    setupSmoothScrolling() {
+      // Enhanced smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener(
+          "click",
+          function (this: HTMLAnchorElement, e: Event) {
+            e.preventDefault();
+
+            const href = this.getAttribute("href");
+            if (!href) return;
+
+            const target = document.querySelector(href);
+            if (target) {
+              const headerOffset = 80;
+              const elementPosition = target.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }
+          }
+        );
+      });
+    }
+  }
+
+  // Initialize performance optimizer
+  new PerformanceOptimizer();
+</script>

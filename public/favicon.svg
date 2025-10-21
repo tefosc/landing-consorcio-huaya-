@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="45" fill="url(#grad)" />
+  
+  <!-- Letter C -->
+  <path d="M30 35 L30 65 L45 65 L45 60 L35 60 L35 40 L45 40 L45 35 Z" fill="white" />
+  
+  <!-- Building icon -->
+  <rect x="55" y="40" width="8" height="25" fill="white" opacity="0.9" />
+  <rect x="66" y="35" width="8" height="30" fill="white" opacity="0.9" />
+  
+  <!-- Small windows -->
+  <rect x="57" y="42" width="2" height="2" fill="url(#grad)" />
+  <rect x="57" y="46" width="2" height="2" fill="url(#grad)" />
+  <rect x="57" y="50" width="2" height="2" fill="url(#grad)" />
+  
+  <rect x="68" y="37" width="2" height="2" fill="url(#grad)" />
+  <rect x="68" y="41" width="2" height="2" fill="url(#grad)" />
+  <rect x="68" y="45" width="2" height="2" fill="url(#grad)" />
+</svg>
